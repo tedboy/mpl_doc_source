@@ -59,7 +59,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'PROJECT_NAME'
+project = u'Matplotlib API'
 copyright = u'2016'
 author = u''
 
