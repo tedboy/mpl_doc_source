@@ -30,8 +30,14 @@ sys.path.insert(0, os.path.abspath('.'))
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 autosummary_generate=True
+autoclass_content='class' # http://www.sphinx-doc.org/en/stable/ext/autodoc.html#confval-autoclass_content
 import IPython.sphinxext
 import numpydoc
+
+# these needed to be set to False to avoid redundant toctree being created from autosummary (fml...wasted so much time on this...)
+# https://github.com/numpy/numpydoc, https://github.com/sphinx-doc/sphinx/issues/99
+numpydoc_class_members_toctree = False
+numpydoc_show_class_members = False
 extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.viewcode',
@@ -59,7 +65,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Matplotlib API'
+project = u'My Project'
 copyright = u'2016'
 author = u''
 
@@ -92,8 +98,8 @@ language = None
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
 exclude_patterns = [
-'autosummary.rst',
-'test3.rst',
+# 'demo_automodule.rst',
+# 'test3.rst',
 #'templates',
 # 'autosummary/pyspark.sql.*',
 # 'autosummary/pyspark.ml.*',
@@ -155,6 +161,7 @@ html_theme_options = {
 # "<project> v<release> documentation" by default.
 #
 # html_title = u'PROJECT_NAME v1'
+html_title = project+u' v1'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #
@@ -254,7 +261,8 @@ html_static_path = ['_static']
 # html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'PROJECT_NAME'
+# htmlhelp_basename = 'PROJECT_NAME'
+htmlhelp_basename = project
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -280,7 +288,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'PROJECT_NAME.tex', u'PROJECT_NAME Documentation',
+    # (master_doc, 'PROJECT_NAME.tex', u'PROJECT_NAME Documentation',
+    (master_doc, project+'.tex', project+u' Documentation',
      u'WWW', 'manual'),
 ]
 
@@ -322,7 +331,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'PROJECT_NAME', u'PROJECT_NAME Documentation',
+    # (master_doc, 'PROJECT_NAME', u'PROJECT_NAME Documentation',
+    (master_doc, project, project+u' Documentation',
      [author], 1)
 ]
 
@@ -336,9 +346,14 @@ man_pages = [
 # Grouping the document tree into Texinfo files. List of tuples
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
+# texinfo_documents = [
+#     (master_doc, 'PROJECT_NAME', u'PROJECT_NAME Documentation',
+#      author, 'PROJECT_NAME', 'One line description of project.',
+#      'Miscellaneous'),
+# ]
 texinfo_documents = [
-    (master_doc, 'PROJECT_NAME', u'PROJECT_NAME Documentation',
-     author, 'PROJECT_NAME', 'One line description of project.',
+    (master_doc, project, project+u' Documentation',
+     author, project, 'One line description of project.',
      'Miscellaneous'),
 ]
 
