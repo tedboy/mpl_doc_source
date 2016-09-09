@@ -1,4 +1,4 @@
-:mod:`{{ fullname }}`
+:mod:`{{ objname }}`
 ======={{ underline }}
 
 .. automodule:: {{ fullname }}
@@ -8,21 +8,11 @@
    Functions
    ---------
    .. autosummary::
-      :toctree:generated/
-      :template:function_custom.rst
+      :toctree:
 
    {% for item in functions %}
       {{ item }}
    {%- endfor %}
-
-   .. toctree::
-       :maxdepth: 1
-       :hidden:
-
-   {% for item in functions %}
-       generated/{{ fullname }}.{{ item }}
-   {%- endfor %}
-      
    {% endif %}
    {% endblock %}
 
@@ -52,7 +42,7 @@
    {% block exceptions %}
    {% if exceptions %}
    Exceptions
-   ---------
+   ----------
    .. autosummary::
       :toctree:
 

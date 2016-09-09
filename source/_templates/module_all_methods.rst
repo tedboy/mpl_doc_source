@@ -42,7 +42,7 @@
    {% block exceptions %}
    {% if exceptions %}
    Exceptions
-   ---------
+   ----------
    .. autosummary::
       :toctree:
 
